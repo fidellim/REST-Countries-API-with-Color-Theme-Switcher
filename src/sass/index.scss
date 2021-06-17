@@ -1,0 +1,10 @@
+@import "abstract/variables";
+
+@import "base/reset";
+@import "base/typography";
+
+body {
+	font-family: $NunitoSans;
+	background-color: $veryLightGray;
+	max-width: 1440px;
+}
