@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 const Countries = () => {
 	const [countries, setCountries] = useState([]);
 	const [isFilterToggled, setIsFilterToggled] = useState(false);
-	const [search, setSearch] = useState("");
 
 	useEffect(() => {
 		getCountries();
@@ -21,18 +20,20 @@ const Countries = () => {
 	};
 
 	const updateSearch = (e) => {
-		setSearch(e.target.value);
-
-		updateSearchedCountries();
+		const { value } = e.target;
+		// window.addEventListener("DOMContentLoaded", () => {
+		// 	updateSearchedCountries();
+		// });
+		updateSearchedCountries(value);
 	};
 
-	const updateSearchedCountries = () => {
+	const updateSearchedCountries = (value) => {
 		// get tag of country name
 		const countryName = document.querySelectorAll(".countryName");
 
 		// check every country if it includes some characters from search
 		countryName.forEach((cN) => {
-			if (cN.innerHTML.toLowerCase().includes(search.toLowerCase())) {
+			if (cN.innerHTML.toLowerCase().includes(value.toLowerCase())) {
 				cN.parentElement.parentElement.parentElement.style.display = "block";
 			} else {
 				cN.parentElement.parentElement.parentElement.style.display = "none";
@@ -46,7 +47,6 @@ const Countries = () => {
 				<i className="fas fa-search"></i>
 				<input
 					type="text"
-					value={search}
 					placeholder="Search for a country..."
 					onChange={updateSearch}
 				/>

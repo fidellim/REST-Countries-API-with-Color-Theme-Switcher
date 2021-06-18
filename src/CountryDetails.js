@@ -7,7 +7,7 @@ const CountryDetails = () => {
 
 	useEffect(() => {
 		getCountryData();
-	}, []);
+	});
 
 	const getCountryData = async () => {
 		const response = await fetch(
