@@ -1,10 +1,20 @@
 @import "abstract/variables";
 
+@import "components/country";
+
 @import "base/reset";
 @import "base/typography";
+
+@import "layout/header";
+@import "layout/countries";
+@import "layout/countryDetails";
+
+@import "themes/dark";
 
 body {
 	font-family: $NunitoSans;
 	background-color: $veryLightGray;
-	max-width: 1440px;
+	color: $veryDarkBlueLM;
+	// max-width: 1440px;
+	font-size: 14px;
 }

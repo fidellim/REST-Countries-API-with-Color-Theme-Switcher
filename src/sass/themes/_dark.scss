@@ -1,0 +1,49 @@
+// toggle dark class when dark mode button is pressed
+.dark {
+	color: $white;
+
+	header {
+		background-color: $darkBlue;
+	}
+
+	.countries {
+		background-color: $veryDarkBlueDM;
+	}
+
+	.searchBar {
+		.fa-search {
+			color: $white;
+		}
+
+		input[type="text"] {
+			background-color: $darkBlue;
+		}
+
+		input[type="text"]::placeholder {
+			color: $white;
+			opacity: 1;
+		}
+	}
+
+	.filter {
+		background-color: $darkBlue;
+
+		.regions {
+			background-color: $darkBlue;
+			// display: block;
+		}
+	}
+
+	.country {
+		background-color: $darkBlue;
+	}
+
+	.btn-theme-switcher {
+		.fas {
+			display: block;
+		}
+		.far {
+			display: none;
+		}
+	}
+}
