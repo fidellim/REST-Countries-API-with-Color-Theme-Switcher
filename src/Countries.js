@@ -1,11 +1,10 @@
 import Country from "./Country";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Countries = () => {
 	const [countries, setCountries] = useState([]);
 	const [isFilterToggled, setIsFilterToggled] = useState(false);
 	const [search, setSearch] = useState("");
-	const [searchedCountries, setSearchedCountries] = useState(countries);
 
 	useEffect(() => {
 		getCountries();
@@ -17,32 +16,25 @@ const Countries = () => {
 		setCountries(data);
 	};
 
-	// console.log(searchedCountries.length);
-
-	const isInitialMount = useRef(true);
-	// useEffect(() => {
-	// 	if (isInitialMount.current) {
-	// 		isInitialMount.current = false;
-	// 	} else {
-	// 		getSearchedCountries();
-	// 		//only runs on updates
-	// 	}
-	// });
-
 	const handleFilterToggle = () => {
 		setIsFilterToggled(!isFilterToggled);
 	};
 
 	const updateSearch = (e) => {
 		setSearch(e.target.value);
-	};
 
-	// const getSearchedCountries = () => {
-	// 	const newCountries = searchedCountries.filter((country) => {
-	// 		return country.name.toLowerCase().includes(search.toLowerCase());
-	// 	});
-	// 	setSearchedCountries(search === "" ? countries : newCountries);
-	// };
+		// get tag of country name
+		const countryName = document.querySelectorAll(".countryName");
+
+		// check every country if it includes some characters from search
+		countryName.forEach((cN) => {
+			if (cN.innerHTML.toLowerCase().includes(search.toLowerCase())) {
+				cN.parentElement.parentElement.parentElement.style.display = "block";
+			} else {
+				cN.parentElement.parentElement.parentElement.style.display = "none";
+			}
+		});
+	};
 
 	return (
 		<div className="countries">

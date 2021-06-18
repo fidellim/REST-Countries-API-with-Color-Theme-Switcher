@@ -81,7 +81,9 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+- [Routers](https://youtube.com/playlist?list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d) - The Net Ninja helped me understand the basic concept of Routers, Switch, and Params.
+- [SASS 7-1 Pattern](https://sass-guidelin.es/#architecture) - Helped me organize my SASS files using partials.
+- [Box-Shadow Examples](https://www.webfx.com/blog/images/assets/cdn.sixrevisions.com/0457-01-css-box-shadow-demo/demo.html) - Helped me organize my SASS files using partials.
 
 ## Author
 
@@ -91,4 +93,4 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ## Acknowledgments
 
-I would like to thank Florin Pop for giving ideas and solution for this project. If you are interested in learning from him, have a look at his [Youtube Channel](https://www.youtube.com/channel/UCeU-1X402kT-JlLdAitxSMA).
+I would like to thank Florin Pop for giving ideas and solution for this project. If you are interested in learning from him, have a look at his [Youtube Channel](https://www.youtube.com/channel/UCeU-1X402kT-JlLdAitxSMA). I would alaso like to thank the Frontend Mentor community for answering any inquries I have.

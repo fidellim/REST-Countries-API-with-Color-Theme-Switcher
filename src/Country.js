@@ -4,9 +4,9 @@ const Country = ({ name, population, region, capital, flag }) => {
 	return (
 		<div className="country">
 			<Link to={`/${name}`}>
-				<img src={flag} alt="aghanistan" />
+				<img src={flag} alt={name} />
 				<div>
-					<h1>{name}</h1>
+					<h1 className="countryName">{name}</h1>
 					<h2>
 						Population: <span>{population}</span>
 					</h2>

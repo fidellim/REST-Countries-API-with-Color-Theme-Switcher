@@ -4,10 +4,12 @@
 
 	header {
 		background-color: $darkBlue;
+		box-shadow: 0px 0px 5px -1px $veryDarkBlueLM;
 	}
 
 	.countries {
 		background-color: $veryDarkBlueDM;
+		transition: background-color 400ms;
 	}
 
 	.searchBar {
@@ -16,7 +18,9 @@
 		}
 
 		input[type="text"] {
+			color: $white;
 			background-color: $darkBlue;
+			box-shadow: 0px 0px 7px -3px $veryDarkBlueLM;
 		}
 
 		input[type="text"]::placeholder {
@@ -27,6 +31,7 @@
 
 	.filter {
 		background-color: $darkBlue;
+		box-shadow: 0px 0px 5.5px -3px $veryDarkBlueLM;
 
 		.regions {
 			background-color: $darkBlue;
@@ -36,6 +41,15 @@
 
 	.country {
 		background-color: $darkBlue;
+		box-shadow: 0px 0px 5.5px -3px $veryDarkBlueLM;
+	}
+
+	.countryDetails {
+		background-color: $veryDarkBlueDM;
+
+		.btn {
+			background-color: $darkBlue;
+		}
 	}
 
 	.btn-theme-switcher {
@@ -45,5 +59,9 @@
 		.far {
 			display: none;
 		}
+	}
+
+	.btn {
+		box-shadow: 0px 0px 5px -1px $veryDarkBlueLM;
 	}
 }
