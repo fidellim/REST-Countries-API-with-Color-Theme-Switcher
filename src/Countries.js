@@ -23,6 +23,10 @@ const Countries = () => {
 	const updateSearch = (e) => {
 		setSearch(e.target.value);
 
+		updateSearchedCountries();
+	};
+
+	const updateSearchedCountries = () => {
 		// get tag of country name
 		const countryName = document.querySelectorAll(".countryName");
 
