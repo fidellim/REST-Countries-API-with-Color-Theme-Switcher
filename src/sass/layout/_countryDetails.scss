@@ -34,5 +34,12 @@
 		h1 {
 			margin-bottom: 1rem;
 		}
+		.borderCountriesContainer {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin: 0 auto;
+		}
 	}
 }

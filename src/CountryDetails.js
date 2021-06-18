@@ -65,13 +65,15 @@ const CountryDetails = () => {
 								</div>
 								<div className="borderCountries">
 									<h1>Border Countries:</h1>
-									{data.borders.map((border) => {
-										return (
-											<div className="btn btn-border-country">
-												<h2>{border}</h2>
-											</div>
-										);
-									})}
+									<div className="borderCountriesContainer">
+										{data.borders.map((border) => {
+											return (
+												<div className="btn btn-border-country">
+													<h2>{border}</h2>
+												</div>
+											);
+										})}
+									</div>
 									{/* if there are no border countries */}
 									{data.borders.length === 0 && <h3>No Border Countries</h3>}
 								</div>

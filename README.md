@@ -39,8 +39,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution](https://your-solution-url.com)
-- Live Site URL: [Live Site](https://your-live-site-url.com)
+- Solution URL: [Solution](https://github.com/fidellim/REST-Countries-API-with-Color-Theme-Switcher)
+- Live Site URL: [Live Site](https://rest-countries-api-with-color-theme-switcher-fidellim.netlify.app/)
 
 ## My process
 
@@ -84,6 +84,7 @@ Use this section to outline areas that you want to continue focusing on in futur
 - [Routers](https://youtube.com/playlist?list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d) - The Net Ninja helped me understand the basic concept of Routers, Switch, and Params.
 - [SASS 7-1 Pattern](https://sass-guidelin.es/#architecture) - Helped me organize my SASS files using partials.
 - [Box-Shadow Examples](https://www.webfx.com/blog/images/assets/cdn.sixrevisions.com/0457-01-css-box-shadow-demo/demo.html) - Helped me organize my SASS files using partials.
+- [Florin Pop Solution](https://youtu.be/uIj8wbvxZIk) - [Sankara Solution Part 1](https://youtu.be/vwZtmHSa9OY) - [Sankara Solution Part 2](https://youtu.be/c9Er4oqgPMM) - The first link is from Florin Pop. Then, the second and third are from Sankara. These solution gave me ideas on how I'll be able to implement this challenge.
 
 ## Author
 
