@@ -16,7 +16,7 @@ const CountryDetails = () => {
 
 	const getCountryData = async () => {
 		const response = await fetch(
-			`https://restcountries.eu/rest/v2/name/${name}`
+			`https://restcountries.eu/rest/v2/name/${name}?fullText=true`
 		);
 		const data = await response.json();
 		if (_isMounted.current) {
