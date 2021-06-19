@@ -35,7 +35,14 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Solution PC Dark](./images/Solution-PC-Dark.png)
+![Solution PC Light](./images/Solution-PC-Light.png)
+![Solution PC Detail Dark](./images/Solution-PC-Detail-Dark.png)
+![Solution PC Detail Light](./images/Solution-PC-Detail-Light.png)
+![Solution Mobile Detail Dark](./images/Solution-Mobile-Detail-Dark.png)
+![Solution Mobile Detail Light](./images/Solution-Mobile-Detail-Light.png)
+![Solution Mobile Dark](./images/Solution-Mobile-Dark.png)
+![Solution Mobile Light](./images/Solution-Mobile-Light.png)
 
 ### Links
 
@@ -49,35 +56,51 @@ Users should be able to:
 - Semantic HTML5 markup
 - SASS
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+I was able to practice 7-1 pattern using SASS. It was also my first time tackling Routes, Switches, Params, and other React features. I was also able to practice some conditional rendering.
 
-To see how you can add code snippets, see below:
+```scss
+@import "abstract/variables";
 
-```html
-<h1>Some HTML code I'm proud of</h1>
+@import "components/country";
+@import "components/button";
+
+@import "base/reset";
+@import "base/typography";
+
+@import "layout/header";
+@import "layout/countries";
+@import "layout/countryDetails";
+
+@import "themes/dark";
 ```
 
-```css
-.proud-of-this-css {
-	color: papayawhip;
-}
-```
+```javascript
+className={isFilterToggled ? "regions openRegions" : "regions"}
 
-```js
-const proudOfThisFunc = () => {
-	console.log("🎉");
-};
+<Router>
+  <div className={isToggled ? "dark" : null}>
+    {/* pass handleToggle func as prop */}
+    <Header handleToggle={handleToggle} />
+    <Switch>
+      <Route exact path="/">
+        <Countries />
+      </Route>
+      <Route path="/:name">
+        <CountryDetails />
+      </Route>
+    </Switch>
+  </div>
+</Router>
 ```
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+To practice more frontend projects using React. I would also like to familiarize myself more on other React features like Switches and Routes.
 
 ### Useful resources
 
@@ -85,6 +108,7 @@ Use this section to outline areas that you want to continue focusing on in futur
 - [SASS 7-1 Pattern](https://sass-guidelin.es/#architecture) - Helped me organize my SASS files using partials.
 - [Box-Shadow Examples](https://www.webfx.com/blog/images/assets/cdn.sixrevisions.com/0457-01-css-box-shadow-demo/demo.html) - Helped me organize my SASS files using partials.
 - [Florin Pop Solution](https://youtu.be/uIj8wbvxZIk) - [Sankara Solution Part 1](https://youtu.be/vwZtmHSa9OY) - [Sankara Solution Part 2](https://youtu.be/c9Er4oqgPMM) - The first link is from Florin Pop. Then, the second and third are from Sankara. These solution gave me ideas on how I'll be able to implement this challenge.
+- [Avoid Memory Leaks](https://stackoverflow.com/questions/59780268/cleanup-memory-leaks-on-an-unmounted-component-in-react-hooks) - This helped me remove the warning of "avoiding memory leaks".
 
 ## Author
 
@@ -94,4 +118,4 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ## Acknowledgments
 
-I would like to thank Florin Pop for giving ideas and solution for this project. If you are interested in learning from him, have a look at his [Youtube Channel](https://www.youtube.com/channel/UCeU-1X402kT-JlLdAitxSMA). I would alaso like to thank the Frontend Mentor community for answering any inquries I have.
+I would like to thank Florin Pop for giving me ideas for this project. If you are interested in learning from him, have a look at his [Youtube Channel](https://www.youtube.com/channel/UCeU-1X402kT-JlLdAitxSMA). I would also like to thank the Frontend Mentor community for answering any inquries I have.
