@@ -90,41 +90,43 @@ const Countries = () => {
 
 	return (
 		<div className="countries">
-			<div className="searchBar">
-				<i className="fas fa-search"></i>
-				<input
-					type="text"
-					placeholder="Search for a country..."
-					onChange={updateSearch}
-				/>
-			</div>
-
-			<div className="filter" onClick={handleFilterToggle}>
-				<div>
-					<p>Filter by Region</p>
-					<i className="fas fa-chevron-down"></i>
+			<div className="searchAndFilterContainer">
+				<div className="searchBar">
+					<i className="fas fa-search"></i>
+					<input
+						type="text"
+						placeholder="Search for a country..."
+						onChange={updateSearch}
+					/>
 				</div>
-				<div className={isFilterToggled ? "regions openRegions" : "regions"}>
-					<ul>
-						<li onClick={handleSelectedRegion} className="selectedRegion">
-							All
-						</li>
-						<li onClick={handleSelectedRegion} className="selectedRegion">
-							Africa
-						</li>
-						<li onClick={handleSelectedRegion} className="selectedRegion">
-							Americas
-						</li>
-						<li onClick={handleSelectedRegion} className="selectedRegion">
-							Asia
-						</li>
-						<li onClick={handleSelectedRegion} className="selectedRegion">
-							Europe
-						</li>
-						<li onClick={handleSelectedRegion} className="selectedRegion">
-							Oceania
-						</li>
-					</ul>
+
+				<div className="filter" onClick={handleFilterToggle}>
+					<div>
+						<p>Filter by Region</p>
+						<i className="fas fa-chevron-down"></i>
+					</div>
+					<div className={isFilterToggled ? "regions openRegions" : "regions"}>
+						<ul>
+							<li onClick={handleSelectedRegion} className="selectedRegion">
+								All
+							</li>
+							<li onClick={handleSelectedRegion} className="selectedRegion">
+								Africa
+							</li>
+							<li onClick={handleSelectedRegion} className="selectedRegion">
+								Americas
+							</li>
+							<li onClick={handleSelectedRegion} className="selectedRegion">
+								Asia
+							</li>
+							<li onClick={handleSelectedRegion} className="selectedRegion">
+								Europe
+							</li>
+							<li onClick={handleSelectedRegion} className="selectedRegion">
+								Oceania
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 
