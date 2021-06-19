@@ -101,7 +101,7 @@ const Countries = () => {
 				</div>
 
 				<div className="filter" onClick={handleFilterToggle}>
-					<div>
+					<div className="filterHeading">
 						<p>Filter by Region</p>
 						<i className="fas fa-chevron-down"></i>
 					</div>
