@@ -1,12 +1,17 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, useRef } from "react";
 import { Link, useParams } from "react-router-dom";
 
 const CountryDetails = () => {
 	const { name } = useParams();
 	const [countryData, setCountryData] = useState([]);
+	const _isMounted = useRef(true);
 
 	useEffect(() => {
 		getCountryData();
+		return () => {
+			// ComponentWillUnmount in Class Component
+			_isMounted.current = false;
+		};
 	});
 
 	const getCountryData = async () => {
@@ -14,7 +19,9 @@ const CountryDetails = () => {
 			`https://restcountries.eu/rest/v2/name/${name}`
 		);
 		const data = await response.json();
-		setCountryData(data);
+		if (_isMounted.current) {
+			setCountryData(data);
+		}
 	};
 
 	return (
@@ -25,50 +32,52 @@ const CountryDetails = () => {
 					<h2>Back</h2>
 				</div>
 			</Link>
-			<div className="countryPropsContainer">
+			<div>
 				{countryData.map((data) => {
 					return (
-						<div>
+						<div className="countryPropsContainer" key={data.nativeName}>
 							<img src={data.flag} alt={data.name} />
 							<div className="countryProps">
 								<h1>{data.name}</h1>
-								<div className="countryPropsOne">
-									<h2>
-										Native Name: <span>{data.nativeName}</span>
-									</h2>
-									<h2>
-										Population: <span>{data.population}</span>
-									</h2>
-									<h2>
-										Region: <span>{data.region}</span>
-									</h2>
-									<h2>
-										Sub Region: <span>{data.subregion}</span>
-									</h2>
-									<h2>
-										Capital: <span>{data.capital}</span>
-									</h2>
-								</div>
-								<div className="countryPropsTwo">
-									<h2>
-										Top Level Domain: <span>{data.topLevelDomain[0]}</span>
-									</h2>
-									<h2>
-										Currencies: <span>{data.currencies[0].name}</span>
-									</h2>
-									<h2>
-										Languages:
-										<span>
-											{data.languages.map((lang) => ` | ${lang.name} |`)}
-										</span>
-									</h2>
+								<div className="countryPropsDetailsContainer">
+									<div className="countryPropsOne">
+										<h2>
+											Native Name: <span>{data.nativeName}</span>
+										</h2>
+										<h2>
+											Population: <span>{data.population}</span>
+										</h2>
+										<h2>
+											Region: <span>{data.region}</span>
+										</h2>
+										<h2>
+											Sub Region: <span>{data.subregion}</span>
+										</h2>
+										<h2>
+											Capital: <span>{data.capital}</span>
+										</h2>
+									</div>
+									<div className="countryPropsTwo">
+										<h2>
+											Top Level Domain: <span>{data.topLevelDomain[0]}</span>
+										</h2>
+										<h2>
+											Currencies: <span>{data.currencies[0].name}</span>
+										</h2>
+										<h2>
+											Languages:
+											<span>
+												{data.languages.map((lang) => ` | ${lang.name} |`)}
+											</span>
+										</h2>
+									</div>
 								</div>
 								<div className="borderCountries">
 									<h1>Border Countries:</h1>
 									<div className="borderCountriesContainer">
 										{data.borders.map((border) => {
 											return (
-												<div className="btn btn-border-country">
+												<div className="btn btn-border-country" key={border}>
 													<h2>{border}</h2>
 												</div>
 											);

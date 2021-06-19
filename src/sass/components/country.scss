@@ -1,5 +1,5 @@
 .country {
-	margin: 2.5rem auto;
+	margin: 3rem 1rem;
 	max-width: 300px;
 	width: 100%;
 	background-color: $white;
@@ -36,4 +36,13 @@
 
 .country:hover {
 	transform: translateY(1%);
+}
+
+// These classes are for filter and search countries
+.hideCountry {
+	display: none;
+}
+
+.hideCountryRegion {
+	display: none;
 }

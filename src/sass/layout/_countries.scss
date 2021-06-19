@@ -75,5 +75,13 @@
 
 .countryContainer {
 	display: flex;
+	align-items: flex-start;
+	justify-content: space-evenly;
 	flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+	.countries {
+		padding: 3rem 5rem;
+	}
 }

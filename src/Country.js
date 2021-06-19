@@ -11,7 +11,7 @@ const Country = ({ name, population, region, capital, flag }) => {
 						Population: <span>{population}</span>
 					</h2>
 					<h2>
-						Region: <span>{region}</span>
+						Region: <span className="countryRegion">{region}</span>
 					</h2>
 					<h2>
 						Capital: <span>{capital}</span>

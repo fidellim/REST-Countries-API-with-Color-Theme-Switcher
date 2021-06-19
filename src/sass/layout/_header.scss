@@ -24,3 +24,9 @@ header {
 		display: none;
 	}
 }
+
+@media (min-width: 768px) {
+	header {
+		padding: 2rem 5rem;
+	}
+}
