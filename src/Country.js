@@ -7,9 +7,9 @@ const Country = ({ name, population, region, capital, flag }) => {
 				<img src={flag} alt={name} />
 				<div>
 					<h1 className="countryName">{name}</h1>
-					<h2>
+					{/* <h2>
 						Population: <span>{population}</span>
-					</h2>
+					</h2> */}
 					<h2>
 						Region: <span className="countryRegion">{region}</span>
 					</h2>

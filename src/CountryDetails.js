@@ -7,22 +7,24 @@ const CountryDetails = () => {
 	const _isMounted = useRef(true);
 
 	useEffect(() => {
+		const getCountryData = async () => {
+			const response = await fetch(
+				`https://restcountries.com/v3/name/${name}?fullText=true`
+			);
+			const data = await response.json();
+
+			if (_isMounted.current) {
+				setCountryData(data);
+			}
+		};
+
 		getCountryData();
+
 		return () => {
 			// ComponentWillUnmount in Class Component
 			_isMounted.current = false;
 		};
 	});
-
-	const getCountryData = async () => {
-		const response = await fetch(
-			`https://restcountries.eu/rest/v2/name/${name}?fullText=true`
-		);
-		const data = await response.json();
-		if (_isMounted.current) {
-			setCountryData(data);
-		}
-	};
 
 	return (
 		<div className="countryDetails">
@@ -35,18 +37,18 @@ const CountryDetails = () => {
 			<div>
 				{countryData.map((data) => {
 					return (
-						<div className="countryPropsContainer" key={data.nativeName}>
-							<img src={data.flag} alt={data.name} />
+						<div className="countryPropsContainer" key={data["name"]["common"]}>
+							<img src={data["flags"][0]} alt={data["name"]["common"]} />
 							<div className="countryProps">
-								<h1>{data.name}</h1>
+								<h1>{data["name"]["common"]}</h1>
 								<div className="countryPropsDetailsContainer">
 									<div className="countryPropsOne">
 										<h2>
 											Native Name: <span>{data.nativeName}</span>
 										</h2>
-										<h2>
+										{/* <h2>
 											Population: <span>{data.population}</span>
-										</h2>
+										</h2> */}
 										<h2>
 											Region: <span>{data.region}</span>
 										</h2>
@@ -59,16 +61,28 @@ const CountryDetails = () => {
 									</div>
 									<div className="countryPropsTwo">
 										<h2>
-											Top Level Domain: <span>{data.topLevelDomain[0]}</span>
+											Top Level Domain: <span>{data.tld[0]}</span>
 										</h2>
 										<h2>
-											Currencies: <span>{data.currencies[0].name}</span>
+											Currencies:{" "}
+											<span>
+												{
+													data["currencies"][Object.keys(data.currencies)[0]][
+														"name"
+													]
+												}
+											</span>
 										</h2>
 										<h2>
 											Languages:
 											<span>
-												{data.languages.map((lang) => ` | ${lang.name} |`)}
+												{Object.keys(data.languages).map((key) => (
+													<span
+														key={key}
+													>{` | ${data.languages[key]} | `}</span>
+												))}
 											</span>
+											{/* {languages && languages.map((lang) => ` | ${lang} |`)} */}
 										</h2>
 									</div>
 								</div>

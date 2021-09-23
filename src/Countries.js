@@ -5,23 +5,47 @@ const Countries = () => {
 	const [countries, setCountries] = useState([]);
 	const [isFilterToggled, setIsFilterToggled] = useState(false);
 	const _isMounted = useRef(true);
-
+	// const [isLoading, setIsLoading] = useState(true);
+	const filterByRegion = document.getElementById("filterByRegion");
+	const regionsData = [
+		{
+			name: "All",
+		},
+		{
+			name: "Africa",
+		},
+		{
+			name: "Americas",
+		},
+		{
+			name: "Asia",
+		},
+		{
+			name: "Europe",
+		},
+		{
+			name: "Oceania",
+		},
+	];
 	useEffect(() => {
+		const getCountries = async () => {
+			const response = await fetch("https://restcountries.com/v3/all");
+			const data = await response.json();
+			setCountries(data);
+			if (_isMounted.current) {
+				// setCountries(data);
+			}
+			// console.log(data.map((d) => d.flags[0]));
+			// console.log(countries.map((d) => d["name"]["common"]));
+		};
+
 		getCountries();
-		// _isMounted.current = true;
+		_isMounted.current = true;
 		return () => {
 			// ComponentWillUnmount in Class Component
 			_isMounted.current = false;
 		};
-	}, []);
-
-	const getCountries = async () => {
-		const response = await fetch("https://restcountries.eu/rest/v2/all");
-		const data = await response.json();
-		if (_isMounted.current) {
-			setCountries(data);
-		}
-	};
+	}, [countries]);
 
 	const handleFilterToggle = () => {
 		setIsFilterToggled(!isFilterToggled);
@@ -60,6 +84,10 @@ const Countries = () => {
 	// onClick for Regions
 	const handleSelectedRegion = (e) => {
 		const selectedRegion = e.target.innerHTML;
+		setIsFilterToggled(false);
+
+		// set heading of filter by region to selected region
+		filterByRegion.innerHTML = selectedRegion;
 
 		filterSelectedRegion(selectedRegion);
 		// console.log(selectedRegion);
@@ -102,45 +130,46 @@ const Countries = () => {
 
 				<div className="filter" onClick={handleFilterToggle}>
 					<div className="filterHeading">
-						<p>Filter by Region</p>
+						<p id="filterByRegion">Filter by Region</p>
 						<i className="fas fa-chevron-down"></i>
 					</div>
 					<div className={isFilterToggled ? "regions openRegions" : "regions"}>
 						<ul>
-							<li onClick={handleSelectedRegion} className="selectedRegion">
-								All
-							</li>
-							<li onClick={handleSelectedRegion} className="selectedRegion">
-								Africa
-							</li>
-							<li onClick={handleSelectedRegion} className="selectedRegion">
-								Americas
-							</li>
-							<li onClick={handleSelectedRegion} className="selectedRegion">
-								Asia
-							</li>
-							<li onClick={handleSelectedRegion} className="selectedRegion">
-								Europe
-							</li>
-							<li onClick={handleSelectedRegion} className="selectedRegion">
-								Oceania
-							</li>
+							{regionsData.map((region) => {
+								return (
+									<li
+										key={region.name}
+										onClick={handleSelectedRegion}
+										className="selectedRegion"
+									>
+										{region.name}
+									</li>
+								);
+							})}
 						</ul>
 					</div>
 				</div>
 			</div>
 
 			<div className="countryContainer">
-				{countries.map((country) => (
-					<Country
-						key={`${country.name}${country.flag}`}
-						name={country.name}
-						population={country.population}
-						region={country.region}
-						capital={country.capital}
-						flag={country.flag}
-					/>
-				))}
+				{countries
+					.sort((a, b) =>
+						a["name"]["common"].localeCompare(b["name"]["common"])
+					)
+					.map((country) => {
+						return (
+							<Country
+								key={`${country["name"]["common"]}${country["flags"][0]}`}
+								name={country["name"]["common"]}
+								// population={country.population}
+								population="hihi"
+								region={country.region}
+								// region="asdsadsadss"
+								capital={country["capital"]}
+								flag={country["flags"][0]}
+							/>
+						);
+					})}
 			</div>
 		</div>
 	);
